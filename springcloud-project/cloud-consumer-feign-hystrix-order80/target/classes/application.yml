@@ -1,0 +1,22 @@
+server:
+  port: 81
+
+spring:
+  application:
+    name: cloud-openfeign-hystrix-order
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: hystrix-order81
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+
+feign:
+  hystrix:
+    enabled: true

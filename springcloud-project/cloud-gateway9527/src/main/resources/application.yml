@@ -1,0 +1,48 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+### 动态路由配置，通过服务名动态调用服务实例
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: payment_8001
+          uri: lb://CLOUD-PAYMENT-SERVICE
+          filters:
+            - AddRequestParameter=token,superadmin
+          predicates:
+            - Path=/payment/** # 请求中包含这个路径才匹配到
+            - After=2022-02-05T15:10:03.685+08:00[Asia/Shanghai] # 请求在这个时间之后才能匹配到
+            #- Header=X-Request-Id, \d+ # 请求头要有X-Request-Id，并且值为整数
+            #- Cookie=username, james # 请求包含Cookie信息，key为username、值为james才能匹配到
+### 普通配置
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: payment_routh #payment_route    #路由的ID，没有固定规则但要求唯一，建议配合服务名
+#          uri: http://localhost:8001          #匹配后提供服务的路由地址
+#          predicates:
+#            - Path=/payment/hystrix/getHystrixInfo_OK         # 断言，路径相匹配的进行路由
+#
+#        - id: payment_routh2 #payment_route    #路由的ID，没有固定规则但要求唯一，建议配合服务名
+#          uri: http://localhost:8001          #匹配后提供服务的路由地址
+#          predicates:
+#            - Path=/payment/lb/**         # 断言，路径相匹配的进行路由
+
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client: #服务提供者provider注册进eureka服务列表内
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      # http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+      defaultZone: http://eureka7001.com:7001/eureka
+
+
+

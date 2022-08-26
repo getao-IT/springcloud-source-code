@@ -1,0 +1,10 @@
+server:
+  port: 81
+
+spring:
+  application:
+    name: cloud-order-service
+  cloud:
+    # zookeeper配置信息
+    zookeeper:
+      connect-string: 192.168.59.125:2181

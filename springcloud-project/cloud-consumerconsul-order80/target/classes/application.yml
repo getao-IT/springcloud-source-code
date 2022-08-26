@@ -1,0 +1,15 @@
+server:
+  port: 81
+
+spring:
+  application:
+    name: consul-order-service
+  cloud:
+    consul:
+      # 服务器consul中服务名称
+      discovery:
+        hostname: 127.0.0.1
+        service-name: ${spring.application.name}
+      # 本机consul地址
+      host: localhost
+      port: 8500
