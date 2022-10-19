@@ -1,5 +1,5 @@
 server:
-  port: 3355
+  port: 3366
 
 spring:
   application:
@@ -25,7 +25,7 @@ eureka:
     service-url:
       defaultZone:  http://eureka7001.com:7001/eureka
   instance:
-    instance-id: cloud-config-client3355
+    instance-id: cloud-config-client3366
     lease-renewal-interval-in-seconds: 30
     lease-expiration-duration-in-seconds: 90
     prefer-ip-address: true
@@ -36,4 +36,3 @@ management:
     web:
       exposure:
         include: "*"
-

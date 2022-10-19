@@ -15,6 +15,12 @@ spring:
             - springcloud-config
       ####读取分支
       label: master
+  # RabbitMQ配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 # 服务注册进eureka
 eureka:
@@ -27,3 +33,10 @@ eureka:
     prefer-ip-address: true # 访问路径显示ip端口信息
     lease-renewal-interval-in-seconds: 30 # 发送心跳间隔
     lease-expiration-duration-in-seconds: 90 # 距离最后一次发送心跳后，超过这个时间，服务将被删除
+
+# RabbitMQ消息总线配置
+management:
+  endpoints: # 暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: 'bus-refresh'
