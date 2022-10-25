@@ -87,4 +87,9 @@ public class PaymentController {
         }
         return new CommonResult<String>(0, "Payment8001处理时长：3s，请求成功！", null);
     }
+
+    @GetMapping("/zipkin-sleuth")
+    public String getZipSleuth() {
+        return "支付服务8001------O(∩_∩)O哈哈~";
+    }
 }

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-provider-payment8002</artifactId>
+    <artifactId>cloud-sleuth-payment8007</artifactId>
 
     <!-- 依赖 -->
     <dependencies>
@@ -67,10 +67,10 @@
             <artifactId>cloud-api-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- zipkin / sleuth -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
     </dependencies>
+
 </project>

@@ -57,4 +57,11 @@ public class OrderController {
         UriComponents uriComponents = UriComponentsBuilder.fromHttpUrl(url).queryParam("id", id).build().encode();
         return restTemplate.getForObject(uriComponents.toUri(), CommonResult.class);
     }
+
+    @GetMapping("/zipkin-sleuth")
+    public String getZipSleuth() {
+        String url = "http://localhost:8001/payment/zipkin-sleuth";
+        String forObject = restTemplate.getForObject(url, String.class);
+        return "订单服务80-调用成功：" + forObject.toString();
+    }
 }

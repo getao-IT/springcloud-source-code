@@ -49,4 +49,9 @@ public class PaymentController {
             return new CommonResult<Payment>(201, "没有符合条件的记录，port"+serverPort, result);
         }
     }
+
+    @GetMapping("/zipkin-sleuth")
+    public String getZipSleuth() {
+        return "支付服务8002------O(∩_∩)O哈哈~";
+    }
 }

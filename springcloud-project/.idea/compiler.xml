@@ -29,6 +29,7 @@
         <module name="cloud-consumer-order80" />
         <module name="cloud-provider-hystrix-payment8001" />
         <module name="cloud-consumer-feign-order80" />
+        <module name="cloud-sleuth-payment8007" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
